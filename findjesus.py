@@ -1,9 +1,9 @@
 import sys
-import requests
 
+import bfs
 
 def main():
-    print(requests.get("https://en.wikipedia.org/wiki/Special:Random").text)
+    print(bfs.bfs("http://en.wikipedia.org/wiki/Special:Random"))
 
 
 if __name__ == '__main__':

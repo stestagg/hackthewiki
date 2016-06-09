@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Given a wikipedia article as our single argument, print out the links."""
 import argparse
 import sys

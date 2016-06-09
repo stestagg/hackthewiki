@@ -1,9 +1,14 @@
 import sys
-import requests
+
+import bfs
+import signal_handeling
+
 
 
 def main():
-    print(requests.get("https://en.wikipedia.org/wiki/Special:Random").text)
+    signal_handeling.prepareToFindJesus()
+    print(bfs.bfs("http://en.wikipedia.org/wiki/Special:Random"))
+    signal_handeling.jesusFound()
 
 
 if __name__ == '__main__':

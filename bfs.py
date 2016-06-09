@@ -1,14 +1,12 @@
-import sys
-import requests
-from bs4 import BeautifulSoup
 from collections import deque
 import subprocess
 
+
 def bfs(start):
-    jesus = 'http://en.wikipedia.org/wiki/Jesus'
+    jesus = b'http://en.wikipedia.org/wiki/Jesus'
     if start == jesus:
         return 0
-    
+
     visited = set()
     visited.add(start)
     queue = deque([]) # make a queue from deque object
@@ -22,6 +20,8 @@ def bfs(start):
             counter += 1
         children = subprocess.check_output('./findlinks.py').splitlines()
         last_in_gen = children[-1]
+        children = subprocess.check_output(
+            ['./findlinks.py', parent]).splitlines()
         if jesus in children:
             return counter
         else:

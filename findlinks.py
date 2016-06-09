@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Given a wikipedia article as our single argument, print out the links."""
 import argparse
 import sys
@@ -27,7 +28,7 @@ def main():
     args = parser.parse_args()
     child_articles = set(generate_links(args.url))
     for child_article in child_articles:
-        print(child_article)
+        print("http://en.wikipedia.org" + child_article)
     sys.stderr.write("%d\n" % len(child_articles))
 
 

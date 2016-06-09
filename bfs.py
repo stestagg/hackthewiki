@@ -15,14 +15,16 @@ def bfs(start):
     queue.appendleft(start)
     path = [start]
     counter = 1
+    last_in_gen = None
     while queue:
         parent = queue.pop()
+        if parent == last_in_gen:
+            counter += 1
         children = subprocess.check_output('./findlinks.py').splitlines()
+        last_in_gen = children[-1]
         if jesus in children:
-            path.append(parent)
             return counter
         else:
-            counter += 1 
             for child in children:
                 if child not in visited:
                     visited.add(child)

@@ -27,7 +27,7 @@ def main():
     args = parser.parse_args()
     child_articles = set(generate_links(args.url))
     for child_article in child_articles:
-        print(child_article)
+        print("http://en.wikipedia.org" + child_article)
     sys.stderr.write("%d\n" % len(child_articles))
 
 
